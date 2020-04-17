@@ -1,0 +1,90 @@
+
+	<div class="mainTub">
+
+		<div class="siteTitle flexRow">Stock and ETF Inventory</div>
+
+		<div id="subTub" class="flexRow">
+			<div id="doggyBox" class="flexColumn">
+				<img id="noel" src="./image/noelBlanketCoat.png" alt="A doggy"/>
+				<div id="imgTitle">"Sweet Noel"</div>
+			</div>
+
+			<form id="present" class="flexColumn" action="/postValue" method="POST">
+				<div id="presentTitle">Present Value</div>
+
+				<div id="value" style="font-size: {{postValue.size}}rem">{{postValue.total}}</div>
+
+				<ul id="theList">
+				{{#each onlyTickersArray}}
+					<li  class="flexRow">
+						<div class="tickerName flexRow">{{this}}</div>
+						<input type="text" class="eachTicker inputSpace" name={{this}} autocomplete="off">
+					</li>
+				{{/each}}
+				</ul>
+
+				<input type="button" id="postValue" class="valueInput" name="postValue" value="Get the Value" style="visibility: {{valueButton}}">
+			</form>
+		</div>
+
+		<form id="transaction" class="flexColumn" action="/addTransaction" method="POST">
+			<div id="transTitle">Add a Transaction</div>
+
+			<div id="transHeading" class="flexRow">
+				<div id="today" class="transBoxN flexColumn">
+					<div id="dateLabel">Date</div>
+					<input type="text" id="date" class="inputSpace" name="date" autocomplete="off">					
+				</div>
+				<div id="tickerSymbol" class="transBoxN flexColumn">
+					<div id="tickerLabel">Ticker Symbol</div>
+					<input type="text" id="ticker" class="inputSpace" name="ticker" oninput="checkAndUpperCase()" autocomplete="off">
+				</div>
+				<div id="transOption" class="transBoxW flexColumn">
+					<div id="optionLabel">Transaction Type</div>
+					<select id="transPick" name="select">
+						<option>Buy</option>
+						<option>Sell</option>
+						<option>Dividend</option>
+						<option>Capital Gain</option>
+					</select>
+				</div>
+				<div class="transBoxN flexColumn">
+					<div id="priceLabel">Share Price</div>
+					<input type="text" id="sharePrice" class="inputSpace" name="sharePrice" oninput="checkAndTwoPlace(id)" autocomplete="off">
+				</div>
+				<div class="transBoxW flexColumn">
+					<div id="transLabel">Transaction Cost</div>
+					<input type="text" id="transCost" class="inputSpace" name="transCost" oninput="checkAndTwoPlace(id)" autocomplete="off">
+				</div>
+				<div class="orBox flexColumn">
+					<div >or</div>
+				</div>
+				<div class="transBoxW flexColumn">
+					<div id="numberLabel">Number of Shares</div>
+					<input type="text" id="shareNumber" class="inputSpace" name="shareNumber" oninput="checkAndThreePlace()" autocomplete="off">
+				</div>
+			</div>
+
+			<input type="button" id="addTrans" value="Add a Transaction">
+		</form>
+
+		<div id="portfolio" class="flexColumn">
+
+			<div id="portTitle">Your Portfolio</div>
+
+			<div id="portHeading" class="flexRow">
+				<div id="" class="portBoxN flexColumnBoth">Ticker</div>
+				<div id="" class="portBoxN flexColumnBoth">Shares</div>
+				<div id="" class="portBoxW flexColumnBoth">Purchased Share Price</div>
+				<div id="" class="portBoxW flexColumnBoth">Purchased Value</div>
+			</div>
+
+		</div>
+<!--
+		<form id="inclusive" class="flexColumn" action="/allInclusive" method="GET">
+			<input type="submit" id="allTrans" value="All Transactions">
+		</form>
+-->
+	</div>
+
+	<script src="./javascript/mainJS.js"></script>

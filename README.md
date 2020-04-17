@@ -1,2 +1,1 @@
-# stockPortfolio
-A listing and total of stocks on a portfolio
+A listing and total of stocks in a portfolio.

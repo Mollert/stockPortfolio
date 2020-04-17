@@ -1,0 +1,256 @@
+
+@font-face { src: url("/assets/numTwoBold.ttf"); font-family: numTwoB; }
+@font-face { src: url("/assets/jackInput.ttf"); font-family: Jac; }
+
+html, body {
+	margin: 0;
+	padding: 0;
+	background-color: whitesmoke;
+}
+
+.flexRow {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.flexRowBoth {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;	
+	justify-content: center;
+	align-items: center;
+}
+
+.flexColumnNone {
+	display: flex;
+	flex-direction: column;
+}
+
+.flexColumn {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.flexColumnBoth {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;	
+}
+
+.flexColumnEnd {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;	
+}
+
+.mainTub {
+	font-family: numTwoB;
+	font-size: 1.4rem;
+	color: mediumblue;
+}
+
+.siteTitle {
+	font-size: 2rem;
+	color: red;
+	text-decoration: underline;
+	margin: 3rem 0 2rem 0;
+}
+
+/* Noel Picture */
+
+#doggyBox {
+	width: 18rem;
+	height: 27rem;
+}
+
+#noel {
+	width: 13.2rem;
+	height: 22rem;
+	border:  0.4rem solid red;
+}
+
+#imgTitle {
+	margin-top: 0.6rem;
+	font-size: 1.6rem;
+}
+
+/* Present Value Area */
+
+#present {
+	width: 22rem;
+	height: 27rem;
+}
+
+#presentTitle {
+	font-size: 2rem;
+	text-decoration: underline;
+}
+
+#theList {
+	margin: 0 0;
+	padding: 0 0;
+}
+
+.tickerName {
+	width: 10rem;
+	height: 3rem;
+	justify-content: flex-end;	
+	align-items: flex-end;
+}
+
+/* Transaction Area */
+
+#transTitle {
+	font-size: 2rem;
+	text-decoration: underline;	
+	margin: 2rem 0 1rem 0;
+}
+
+.transBoxW {
+	width: 13rem;
+	height: 6rem;
+}
+
+.transBoxN {
+	width: 10rem;
+	height: 6rem;
+}
+
+.orBox {
+	width: 2rem;
+	height: 6rem;	
+}
+
+#transPick {
+	width: 11.2rem;
+	height: 2.4rem;
+	margin-top: 0.6rem;
+	font-family: Jac;
+	font-size: 1.4rem;
+	color: mediumblue;
+	padding-left: 0.4rem;
+    border: 0.1rem solid mediumblue;
+    border-radius: 0.4rem;
+    background-color: whitesmoke;
+    outline: none;
+}
+
+.inputSpace {
+	margin: 0.8rem 0 0 0.4rem;	
+}
+
+input[type=text] {
+	width: 8rem;
+	height: 2rem;
+	font-family: Jac;
+	font-size: 1.8rem;
+	text-align: center;
+	color: mediumblue;
+	border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 0.1rem;  
+    border-color: mediumblue;
+    background-color: whitesmoke;
+}
+
+input[type=text]:hover {
+    cursor: pointer;
+}
+
+input[type=text]:focus {
+	outline: none;
+    border-color: red;
+    cursor: pointer;
+}
+
+input[type=text]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+#shareNumber,
+#transCost {
+	width: 10rem;	
+}
+
+
+
+
+
+
+
+/*input[type=submit] {*/
+input[type=button] {	
+	width: 14rem;
+	height: 3rem;
+	margin: 1rem 0;
+	font-family: numTwoB;
+	font-size: 1.4rem;
+	background-color: mediumblue;
+	border-radius: 0.4rem;
+	color: yellow;
+}
+
+/*input[type=submit]:hover {*/
+input[type=button]:hover {
+	background-color: lightgray;
+	color: red;
+    cursor: pointer;
+}
+
+
+
+
+
+/* Portfolio Area */
+
+#portTitle {
+	font-size: 2rem;
+	text-decoration: underline;
+	margin: 2rem 0 1rem 0;
+}
+
+.portBoxW {
+	width: 15rem;
+	height: 2.4rem;
+}
+
+.portBoxN {
+	width: 7rem;
+	height: 2.4rem;
+}
+
+/* Confirmation Page */
+
+.confirmation {
+	margin: 1.4rem 0;
+	font-size: 1.8rem;
+
+}
+
+/* Error Page */
+
+#errorPail {
+	width: 84vw;
+	height: 24rem;
+	margin: 8vw 8vw 0 8vw;
+	background-color: tomato;
+}
+
+.errorInfo {
+	padding-top: 2rem;
+	text-align: center;
+}
+
+#errorMessage {
+	font-family: Jac;
+	font-size: 1.2rem;
+	padding: 2rem;
+}
