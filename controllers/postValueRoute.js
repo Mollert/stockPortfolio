@@ -14,8 +14,10 @@ router.post("/", (req, res) => {
 		size: 1.8 };
 
 	let priceObjArray = Object.entries(req.body);
+	let priceObjLength = priceObjArray.length -1;
 
 	let tickersAndShares = activeAndShares();
+
 	let price = 0;
 	let shares = 0;
 	let totalTally = 0;
@@ -24,9 +26,9 @@ router.post("/", (req, res) => {
 	for (let i = 0 ; i < tickersAndShares.length ; i++) {
 		price = 0;
 		shares = parseFloat(tickersAndShares[i][1]);
-		for (let j = 0 ; j < priceObjArray.length ; j++) {
+		for (let j = 0 ; j < priceObjLength ; j++) {
 			if (tickersAndShares[i][0] === priceObjArray[i][0]) {
-				price = parseFloat(priceObjArray[i][1]);			
+				price = parseFloat(priceObjArray[i][1]);
 				totalTally = totalTally + (price * shares);
 			}
 		}
