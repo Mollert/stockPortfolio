@@ -12,9 +12,9 @@
 			<form id="present" class="flexColumn" action="/postValue" method="POST">
 				<div id="presentTitle">Present Value</div>
 
-				<div id="value" style="font-size: {{postValue.size}}rem">{{postValue.total}}</div>
+				<div id="value" style="font-size: {{postValue.size}}rem;">{{postValue.total}}</div>
 
-				<ul id="theList">
+				<ul id="theTickers">
 				{{#each onlyTickersArray}}
 					<li  class="flexRow">
 						<div class="tickerName flexRow">{{this}}</div>
@@ -74,17 +74,25 @@
 
 			<div id="portHeading" class="flexRow">
 				<div id="" class="portBoxN flexColumnBoth">Ticker</div>
-				<div id="" class="portBoxN flexColumnBoth">Shares</div>
-				<div id="" class="portBoxW flexColumnBoth">Purchased Share Price</div>
+				<div id="" class="portBoxW flexColumnBoth">Total Shares</div>
 				<div id="" class="portBoxW flexColumnBoth">Purchased Value</div>
+				<div id="" class="portBoxW flexColumnBoth">Current Value</div>
 			</div>
+			{{#each portfolioData}}
+			<div class="portData flexRow">			
+				<div class="portBoxN flexColumnBoth">{{this.ticker}}</div>
+				<div class="portBoxW flexColumnBoth">{{this.totalShares}}</div>
+				<div class="portBoxW flexColumnBoth">{{this.totalCost}}</div>
+				<div class="portBoxW flexColumnBoth">{{this.currentValue}}</div>
+			</div>
+			{{/each}}
 
 		</div>
-<!--
+
 		<form id="inclusive" class="flexColumn" action="/allInclusive" method="GET">
 			<input type="submit" id="allTrans" value="All Transactions">
 		</form>
--->
+
 	</div>
 
 	<script src="./javascript/mainJS.js"></script>

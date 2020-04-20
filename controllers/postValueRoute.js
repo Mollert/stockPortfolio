@@ -3,8 +3,8 @@ const express = require("express");
 const request = require("request");
 const router = express.Router();
 
-
 let activeAndShares = require("../public/javascript/activeData.js");
+let addComaAndSign = require("../public/javascript/addComa$.js");
 
 
 router.post("/", (req, res) => {
@@ -22,32 +22,49 @@ router.post("/", (req, res) => {
 	let shares = 0;
 	let totalTally = 0;
 	let lengthMM = 0;
+
 	// Multipling the share price by each tickers share amount and totaling amounts
 	for (let i = 0 ; i < tickersAndShares.length ; i++) {
 		price = 0;
 		shares = parseFloat(tickersAndShares[i][1]);
 		for (let j = 0 ; j < priceObjLength ; j++) {
-			if (tickersAndShares[i][0] === priceObjArray[i][0]) {
-				price = parseFloat(priceObjArray[i][1]);
+			if (tickersAndShares[i][0] === priceObjArray[j][0]) {
+				price = parseFloat(priceObjArray[j][1]);
 				totalTally = totalTally + (price * shares);
 			}
 		}
 	}
 	// Adding in the Money MArket amount to the total
-	lengthMM = priceObjArray.length - 1;
-	totalTally = totalTally + parseFloat(priceObjArray[lengthMM][1]);
-	totalTally = (totalTally).toFixed(2);
+	priceObjArray.forEach(value => {
+		if (value[0] === "Money") {
+			totalTally = totalTally + parseFloat(value[1]);
+			totalTally = (totalTally).toFixed(2);			
+		}
+	});
 	// Adding a comma if total is large enough
-	if (totalTally.length > 6) {
-		let theLength = totalTally.length - 6;
-		totalTally = totalTally.slice(0, theLength) + "," + totalTally.slice(theLength);
-	}	
-
-	postValue.total = "$" + totalTally.toString();
+	postValue.total = addComaAndSign(totalTally);
 
 	let valueButton = "hidden";
 
-	res.render("index", { postValue, valueButton });
+	let portfolioData = [];
+	// Create Object from Array of Arrays and add current value
+	tickersAndShares.forEach(tick => {
+		let assessment = 0;
+		priceObjArray.forEach(amount => {
+			if (tick[0] === amount[0]) {
+				assessment = parseFloat(tick[1]) * parseFloat(amount[1]);
+				assessment = assessment.toFixed(2);				
+			}
+		});
+		portfolioData.push({
+			ticker: tick[0],
+			totalShares: tick[1],
+			totalCost: addComaAndSign(tick[2]),
+			currentValue: addComaAndSign(assessment)
+		});
+	});
+
+	res.render("index", { postValue, valueButton, portfolioData });
 });
 
 

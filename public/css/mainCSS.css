@@ -61,7 +61,7 @@ html, body {
 	margin: 3rem 0 2rem 0;
 }
 
-/* Noel Picture */
+/*--- Noel Picture ---*/
 
 #doggyBox {
 	width: 18rem;
@@ -79,7 +79,7 @@ html, body {
 	font-size: 1.6rem;
 }
 
-/* Present Value Area */
+/*--- Present Value Area ---*/
 
 #present {
 	width: 22rem;
@@ -91,7 +91,7 @@ html, body {
 	text-decoration: underline;
 }
 
-#theList {
+#theTickers {
 	margin: 0 0;
 	padding: 0 0;
 }
@@ -103,7 +103,7 @@ html, body {
 	align-items: flex-end;
 }
 
-/* Transaction Area */
+/*--- Transaction Area ---*/
 
 #transTitle {
 	font-size: 2rem;
@@ -180,13 +180,7 @@ input[type=text]::-webkit-outer-spin-button {
 	width: 10rem;	
 }
 
-
-
-
-
-
-
-/*input[type=submit] {*/
+input[type=submit],
 input[type=button] {	
 	width: 14rem;
 	height: 3rem;
@@ -198,18 +192,14 @@ input[type=button] {
 	color: yellow;
 }
 
-/*input[type=submit]:hover {*/
+input[type=submit]:hover,
 input[type=button]:hover {
 	background-color: lightgray;
 	color: red;
     cursor: pointer;
 }
 
-
-
-
-
-/* Portfolio Area */
+/*--- Portfolio Area ---*/
 
 #portTitle {
 	font-size: 2rem;
@@ -217,8 +207,13 @@ input[type=button]:hover {
 	margin: 2rem 0 1rem 0;
 }
 
+.portData {
+	font-family: Jac;
+	font-size: 1.6rem;		
+}
+
 .portBoxW {
-	width: 15rem;
+	width: 12rem;
 	height: 2.4rem;
 }
 
@@ -227,7 +222,7 @@ input[type=button]:hover {
 	height: 2.4rem;
 }
 
-/* Confirmation Page */
+/*--- Confirmation Page ---*/
 
 .confirmation {
 	margin: 1.4rem 0;
@@ -235,7 +230,22 @@ input[type=button]:hover {
 
 }
 
-/* Error Page */
+/*--- All Inclusive Page ---*/
+
+.listingBox {
+	width: 46rem;
+	height: 5rem;
+}
+
+.indentList {
+	margin-left: 4rem;
+}
+
+#inclusive {
+	font-size: 1.6rem;
+}
+
+/*--- Error Page ---*/
 
 #errorPail {
 	width: 84vw;

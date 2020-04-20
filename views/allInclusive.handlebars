@@ -1,18 +1,17 @@
 
 	<div class="mainTub">
 
-		<div class="siteTitle flexRow">A listing of all transacitons</div>
+		<div class="siteTitle flexRow">A listing of all transactions</div>
 
-			<ul id="theList">
-			{{#each allTransArray}}
-				<li  class="flexRow">
-					<div>{{this}}</div>
-				</li>
+		<div class="flexRow">
+			{{#each allTrans}}
+			<div class="listingBox">
+				<div >A {{this.ticker}} <span style="color: {{this.typeColor}};">{{this.type}}</span> on {{this.date}},</div>
+				<div class="indentList">{{this.shares}} shares @ {{this.perShare}} per share; equaling {{this.total}} total cost.</div>
+			</div>
 			{{/each}}
-			</ul>
-
-			<div id="getHome" class="confirmation">This will take you back to <a href="/">transaction page</a>.</div>
-
 		</div>
+
+		<div id="inclusive" class="flexRow">This will take you back to the&nbsp<a href="/">transaction page</a>.</div>	
 
 	</div>

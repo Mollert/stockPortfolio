@@ -3,15 +3,41 @@ const express = require("express");
 const request = require("request");
 const router = express.Router();
 
-
 let getEntries = require("../public/javascript/readData.js");
+let addComaAndSign = require("../public/javascript/addComa$.js");
+
+const whichColor = (that) => {
+	if (that === "sell") {
+		return "firebrick";
+	} else if (that === "dividend" || that === "capital gain") {
+		return "goldenrod";		
+	} else {
+		return "mediumblue";
+	}
+}
 
 
 router.get("/", (req, res) => {
 
 	allActivityArray = getEntries();
-	
-	res.render("allInclusive", { allActivityArray });
+
+	let allTrans = [];
+
+	for (let i = 0 ; i < allActivityArray.length ; i++) {
+		for (let j = 0 ; j < allActivityArray[i].length ; j++) {
+			allTrans.push({
+				ticker: allActivityArray[i][j][1],
+				type: allActivityArray[i][j][2],
+				typeColor: whichColor(allActivityArray[i][j][2]),
+				date: allActivityArray[i][j][0],
+				shares: allActivityArray[i][j][5],
+				perShare: addComaAndSign(allActivityArray[i][j][3]),
+				total: addComaAndSign(allActivityArray[i][j][4])
+			});
+		}
+	}
+
+	res.render("allInclusive", { allTrans });
 });
 
 
