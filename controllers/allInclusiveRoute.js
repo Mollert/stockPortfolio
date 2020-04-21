@@ -21,11 +21,19 @@ router.get("/", (req, res) => {
 
 	allActivityArray = getEntries();
 
+	let newTick = allActivityArray[0][0][1];
+
 	let allTrans = [];
 
 	for (let i = 0 ; i < allActivityArray.length ; i++) {
+
 		for (let j = 0 ; j < allActivityArray[i].length ; j++) {
+			if (allActivityArray[i][j][1] !== newTick) {
+				allTrans[allTrans.length - 1].divHeight = 6;
+			}
+
 			allTrans.push({
+				divHeight: 4.2,
 				ticker: allActivityArray[i][j][1],
 				type: allActivityArray[i][j][2],
 				typeColor: whichColor(allActivityArray[i][j][2]),
@@ -34,6 +42,7 @@ router.get("/", (req, res) => {
 				perShare: addComaAndSign(allActivityArray[i][j][3]),
 				total: addComaAndSign(allActivityArray[i][j][4])
 			});
+			newTick = allActivityArray[i][j][1];		
 		}
 	}
 

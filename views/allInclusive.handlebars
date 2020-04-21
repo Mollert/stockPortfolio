@@ -5,7 +5,7 @@
 
 		<div class="flexRow">
 			{{#each allTrans}}
-			<div class="listingBox">
+			<div class="listingBox" style="height: {{divHeight}}rem">
 				<div >A {{this.ticker}} <span style="color: {{this.typeColor}};">{{this.type}}</span> on {{this.date}},</div>
 				<div class="indentList">{{this.shares}} shares @ {{this.perShare}} per share; equaling {{this.total}} total cost.</div>
 			</div>

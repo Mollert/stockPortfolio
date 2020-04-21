@@ -234,7 +234,7 @@ input[type=button]:hover {
 
 .listingBox {
 	width: 46rem;
-	height: 5rem;
+/*	height: 5rem;*/
 }
 
 .indentList {
@@ -242,6 +242,7 @@ input[type=button]:hover {
 }
 
 #inclusive {
+	margin-top: 1.4rem;
 	font-size: 1.6rem;
 }
 
