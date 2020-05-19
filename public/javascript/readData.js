@@ -10,7 +10,6 @@ let getEntries = () => {
 	let aMatch = false;
 
 
-
 	let data = fs.readFileSync(path, "utf8");
 
 	readArray = data.split(/\n/);
@@ -27,7 +26,7 @@ let getEntries = () => {
 	allActivityArray[0].push(transferArray[0]);
 	// This groups transactions by ticker symbol
 	for (let i = 1 ; i < transferArray.length ; i++) {
-		amatch = false
+		aMatch = false
 		for (let j = 0 ; j < allActivityArray.length ; j++) {
 			if (transferArray[i][1] === allActivityArray[j][0][1]) {
 				allActivityArray[j].push(transferArray[i]);
