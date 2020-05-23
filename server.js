@@ -4,6 +4,8 @@ const request = require("request");
 const exphbs = require("express-handlebars");
 const path = require("path");
 const bodyParser = require("body-parser");
+const fetch = require("node-fetch");
+const cheerio = require("cheerio");
 const fs = require("fs");
 
 
@@ -21,13 +23,11 @@ app.set("views", path.join(__dirname ,"views"));
 
 const indexPage = require("./controllers/indexRoute.js");
 const addPage = require("./controllers/addTransactionRoute.js");
-const postPage = require("./controllers/postValueRoute.js");
 const allPage = require("./controllers/allInclusiveRoute.js");
 const errorPage = require("./controllers/errorRoute.js");
 
 app.use("/error", errorPage);
 app.use("/addTransaction", addPage);
-app.use("/postValue", postPage);
 app.use("/allInclusive", allPage);
 app.use("/", indexPage);
 

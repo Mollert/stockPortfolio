@@ -9,22 +9,19 @@
 				<div id="imgTitle">"Sweet Noel"</div>
 			</div>
 
-			<form id="present" class="flexColumn" action="/postValue" method="POST">
-				<div id="presentTitle">Present Value</div>
-
-				<div id="value" style="font-size: {{postValue.size}}rem;">{{postValue.total}}</div>
+			<div id="present" class="flexColumn">
+				<div id="presentTitle">Present Values</div>
 
 				<ul id="theTickers">
-				{{#each onlyTickersArray}}
-					<li  class="flexRow">
-						<div class="tickerName flexRow">{{this}}</div>
-						<input type="text" class="eachTicker inputSpace" name={{this}} autocomplete="off">
+				{{#each currentPort}}
+					<li  class="company">
+						<div class="companyName">{{this.name}}</div>
+						<div class="companyDetail"> ({{this.ticker}}) ${{this.price}}</div>
 					</li>
 				{{/each}}
 				</ul>
 
-				<input type="button" id="postValue" class="valueInput" name="postValue" value="Get the Value" style="visibility: {{valueButton}}">
-			</form>
+			</div>
 		</div>
 
 		<form id="transaction" class="flexColumn" action="/addTransaction" method="POST">

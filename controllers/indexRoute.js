@@ -3,37 +3,59 @@ const express = require("express");
 const request = require("request");
 const router = express.Router();
 
+let createPromises = require("../public/javascript/getPromises.js");
 let activeAndShares = require("../public/javascript/activeData.js");
 let addComaAndSign = require("../public/javascript/addComa$.js");
 
 
 router.get("/", (req, res) => {
 
-	let portfolioData = [];
-	// Create Object from Array of Arrays
-	activeAndShares().forEach(tick => {
-		portfolioData.push({
-			ticker: tick[0],
-			totalShares: tick[1],
-			totalCost: addComaAndSign(tick[2]),
-			currentValue: tick[3]
-		});
-	});
-
 	let onlyTickersArray = [];
+	let currentPort = [];
+	let portfolioData = [];
+
 	// Separating the Tickers to its own array
 	activeAndShares().forEach(each => {
 		onlyTickersArray.push(each[0]);
 	});
-	// Adding in the "Money Market"
-	onlyTickersArray.push("Money Market");
-	
-	let postValue = {
-		total: "Add price to each ticker.",
-		size: 1.4 }
-	let valueButton = "visible";
 
-	res.render("index", { postValue, onlyTickersArray, valueButton, portfolioData });
+	const letsResolve = (pGroup) => {
+		Promise.all(pGroup).then(result => {
+//			return result;
+			// Split result array into strings then split strings into parts at commas.
+			result.forEach(entry => {
+				let temp = entry.split(',')			
+				currentPort.push({
+					name: temp[0],
+					ticker: temp[1],
+					price: temp[2]
+				})
+			});
+			// Find and post current price
+			// Create Object from Array of Arrays
+			activeAndShares().forEach(tick => {
+				let assessment = 0;
+				currentPort.forEach(amount => {
+					if (tick[0] === amount.ticker) {
+						assessment = parseFloat(tick[1]) * parseFloat(amount.price);
+						assessment = assessment.toFixed(2);				
+					}
+				});
+
+				portfolioData.push({
+					ticker: tick[0],
+					totalShares: tick[1],
+					totalCost: addComaAndSign(tick[2]),
+					currentValue: addComaAndSign(assessment)
+				});
+			});
+
+			res.render("index", { currentPort, portfolioData });	
+		})
+	}
+
+	letsResolve(createPromises(onlyTickersArray));
+
 });
 
 
