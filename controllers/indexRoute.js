@@ -3,8 +3,9 @@ const express = require("express");
 const request = require("request");
 const router = express.Router();
 
-let createPromises = require("../public/javascript/getPromises.js");
 let activeAndShares = require("../public/javascript/activeData.js");
+let createPromises = require("../public/javascript/getPromises.js");
+let tradingResults = require("../public/javascript/tradingRecord.js");
 let addComaAndSign = require("../public/javascript/addComa$.js");
 
 
@@ -50,7 +51,7 @@ router.get("/", (req, res) => {
 				});
 			});
 
-			res.render("index", { currentPort, portfolioData });	
+			res.render("index", { currentPort, tradingResults, portfolioData });	
 		})
 	}
 

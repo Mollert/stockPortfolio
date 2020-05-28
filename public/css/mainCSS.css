@@ -102,6 +102,13 @@ html, body {
 	margin: 0 0 1rem 2rem;
 }
 
+/*--- Results Area ---*/
+
+#tResults {
+	font-size: 1.6rem;
+	text-align: center;
+}
+
 /*--- Transaction Area ---*/
 
 #transTitle {
