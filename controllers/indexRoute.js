@@ -25,12 +25,12 @@ router.get("/", (req, res) => {
 //			return result;
 			// Split result array into strings then split strings into parts at commas.
 			result.forEach(entry => {
-				let temp = entry.split(',')			
+				let temp = entry.split('|');		
 				currentPort.push({
 					name: temp[0],
 					ticker: temp[1],
 					price: temp[2]
-				})
+				});
 			});
 			// Find and post current price
 			// Create Object from Array of Arrays

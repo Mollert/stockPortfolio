@@ -4,6 +4,7 @@ let monthDay = new Date();
 let holderDate =  (monthDay.getMonth() + 1) + "/" + monthDay.getDate();
 document.getElementById("date").value = holderDate;
 
+
 // Check and remove anything other than letters and then upper case them for Transaction Ticker
 const checkAndUpperCase = () => {
 	let letter = document.getElementById("ticker").value;

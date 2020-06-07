@@ -24,11 +24,15 @@ app.set("views", path.join(__dirname ,"views"));
 const indexPage = require("./controllers/indexRoute.js");
 const addPage = require("./controllers/addTransactionRoute.js");
 const allPage = require("./controllers/allInclusiveRoute.js");
+const watchPage = require("./controllers/watchListRoute.js");
+const modifyWLPage = require("./controllers/modifyWatchListRoute.js");
 const errorPage = require("./controllers/errorRoute.js");
 
 app.use("/error", errorPage);
 app.use("/addTransaction", addPage);
 app.use("/allInclusive", allPage);
+app.use("/watchList", watchPage);
+app.use("/modifyWatchList", modifyWLPage);
 app.use("/", indexPage);
 
 

@@ -15,17 +15,11 @@ html, body {
 	justify-content: center;
 }
 
-.flexRowBoth {
+.flexRowStart {
 	display: flex;
 	flex-direction: row;
-	flex-wrap: wrap;	
-	justify-content: center;
-	align-items: center;
-}
-
-.flexColumnNone {
-	display: flex;
-	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: flex-start;
 }
 
 .flexColumn {
@@ -39,13 +33,6 @@ html, body {
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;	
-}
-
-.flexColumnEnd {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: flex-end;	
 }
 
 .mainTub {
@@ -81,9 +68,14 @@ html, body {
 
 /*--- Present Value Area ---*/
 
-#present {
+#presentHalf {
 	width: 22rem;
 	height: 27rem;
+}
+
+#present {
+	width: 100%;
+	height: 22rem;
 }
 
 #presentTitle {
@@ -100,6 +92,27 @@ html, body {
 
 .companyDetail {
 	margin: 0 0 1rem 2rem;
+}
+
+#watchLink {
+/*	align-content: flex-end;  */
+	text-decoration: none;
+}
+
+#toWatchButton {
+	width: 14rem;
+	height: 3rem;
+	font-family: numTwoB;
+	font-size: 1.4rem;
+	background-color: mediumblue;
+	border-radius: 0.4rem;
+	color: yellow;
+}
+
+#toWatchButton:hover {
+	background-color: lightgray;
+	color: red;
+    cursor: pointer;
 }
 
 /*--- Results Area ---*/
@@ -229,27 +242,94 @@ input[type=button]:hover {
 }
 
 /*--- Confirmation Page ---*/
+/*--- All Inclusive Page ---*/
+/*--- Watch List Page ---*/
+/*--- Modify Confirmation Page ---*/
 
-.confirmation {
-	margin: 1.4rem 0;
-	font-size: 1.8rem;
-
+.goingHome {
+	margin: 1.4rem 0 3rem 0;
+	font-size: 1.6rem;
 }
 
 /*--- All Inclusive Page ---*/
 
 .listingBox {
-	width: 46rem;
-/*	height: 5rem;*/
+	flex-wrap: nowrap;
 }
 
 .indentList {
 	margin-left: 4rem;
 }
 
-#inclusive {
-	margin-top: 1.4rem;
+/*--- Watch List Page ---*/
+
+.watchEach {
+	width: 80vw;
+	margin-left: 10vw;
+}
+
+.watchWhat {
+	margin: 1.2rem 0 0.4rem 0;
+	color: red;
+}
+
+.watchNotes {
+	font-size: 1.2rem;
+	margin: 0.4rem 0 0.6rem 2rem;
+}
+
+#modifyInputGroup {
+	width: 70vw;
+	margin-left: 15vw;
+}
+
+#modifyInputTitle {
+	margin: 3rem 0 1.4rem 0;
+	font-size: 1.8rem;
+	color: red;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#watchTicker {
 	font-size: 1.6rem;
+}
+
+#watchNoteSet {
+	margin: 1.4rem 0 1rem 0;
+}
+
+.provideSpace {
+	margin-right: 0.6rem;
+}
+
+input[type=textarea] {
+ 	width: calc(100% - 8rem);
+	height: 1.8rem;
+	font-family: Jac;
+	font-size: 1.4rem;
+	color: mediumblue;
+	border-top-style: hidden;
+    border-right-style: solid;
+    border-left-style: solid;
+    border-bottom-style: hidden;
+    border-left-width: 0.1rem;  
+    border-color: mediumblue;
+    background-color: whitesmoke;
+}
+
+input[type=textarea]:hover {
+    cursor: pointer;
+}
+
+input[type=textarea]:focus {
+	outline: none;
+    border-color: red;
+    cursor: pointer;
+}
+
+.modifyButton {
+	margin: 0 2rem;
 }
 
 /*--- Error Page ---*/

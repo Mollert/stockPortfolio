@@ -1,0 +1,41 @@
+
+	<div class="mainTub">
+
+		<div class="siteTitle flexRow">Watching these stocks.</div>
+
+		<div class="watchEach">
+			{{#each watching}}			
+			<div class="watchWhat">{{this.company}}&ensp;({{this.symbol}})&ensp;-&ensp;${{this.value}}</div>
+				{{#each note}}
+				<div class="watchNotes">{{this}}</div>
+				{{/each}}		
+			{{/each}}
+		</div>
+
+		<form id="modifyInputGroup" action="/modifyWatchList" method="POST">
+			<div id="modifyInputTitle">Add or subtract from the list above.</div>	
+
+			<div id="watchTickerSet" class="flexRowStart">
+				<div id="watchTickerLabel" class="provideSpace">Add Ticker:</div>
+				<input type="text" id="watchTicker" class="" name="watchTicker" oninput="checkAndUpperCase()" autocomplete="off">
+			</div>
+
+			<div id="watchNoteSet" class="flexRowStart">
+				<div id="watchNoteLabel" class="provideSpace">Add Note:</div>
+				<input type="textarea" id="watchNote" class="" name="watchNote" autocomplete="off">
+			</div>			
+			<div class="flexRow">
+				<div class="modifyButton">
+					<input type="submit" id="addListButton" name="modify" value="Add to List">
+				</div>
+				<div class="modifyButton">				
+					<input type="submit" id="deleteListButton" name="modify" value="Remove from List">
+				</div>
+			</div>
+		</form>
+
+		<div class="goingHome flexRow">This will take you back to the&nbsp;<a href="/">home page</a>.</div>	
+
+	</div>
+
+	<script src="./javascript/watchListJS.js"></script>

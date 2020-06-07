@@ -9,18 +9,21 @@
 				<div id="imgTitle">"Sweet Noel"</div>
 			</div>
 
-			<div id="present" class="flexColumn">
-				<div id="presentTitle">Present Values</div>
+			<div id="presentHalf">
+				<div id="present" class="flexColumn">
+					<div id="presentTitle">Present Values</div>
 
-				<ul id="theTickers">
-				{{#each currentPort}}
-					<li  class="company">
-						<div class="companyName">{{this.name}}</div>
-						<div class="companyDetail"> ({{this.ticker}}) ${{this.price}}</div>
-					</li>
-				{{/each}}
-				</ul>
+					<ul id="theTickers">
+					{{#each currentPort}}
+						<li  class="company">
+							<div class="companyName">{{this.name}}</div>
+							<div class="companyDetail">({{this.ticker}}) ${{this.price}}</div>
+						</li>
+					{{/each}}
+					</ul>
 
+				</div>
+				<a id="watchLink" class="flexRow" href="/watchList"><button id="toWatchButton" >To Watch List</button></a>
 			</div>
 		</div>
 

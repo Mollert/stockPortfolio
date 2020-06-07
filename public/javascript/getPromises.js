@@ -30,7 +30,7 @@ const createPromises = (theGroup) => {
 					}
 				}
 				// Concatenate in order for promise to resolve.  No array or object
-				company = theName + "," + tick + "," + thePrice;
+				company = theName + "|" + tick + "|" + thePrice;
 
 				resolve(company);
 			})
