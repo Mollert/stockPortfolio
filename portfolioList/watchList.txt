@@ -1,1 +1,2 @@
 ^GSPC
+RCL| 6/8/20 Watching it move - fluctuate 4 points a day

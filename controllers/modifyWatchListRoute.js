@@ -7,12 +7,15 @@ const fs = require("fs");
 
 router.post("/", (req, res) => {
 
+	let theDay = new Date();
+	let addDate =  (theDay.getMonth() + 1) + "/" + theDay.getDate() + "/" + (theDay.getFullYear()).toString().substr(-2);
+
 	let confirmationMessage = "";
 	let modifyString = "";
 //	If adding to the list then if with or without a note
 	if (req.body.modify === "Add to List") {
 		if (req.body.watchNote !== "") {
-			modifyString = req.body.watchTicker + "| " + req.body.watchNote + "\n";
+			modifyString = req.body.watchTicker + "| " + addDate + " " + req.body.watchNote + "\n";
 			confirmationMessage = "A note was added under the ticker " + req.body.watchTicker + ".";
 		} else {
 			modifyString = req.body.watchTicker + "\n";
