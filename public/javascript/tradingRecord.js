@@ -5,9 +5,8 @@ let addComaAndSign = require("./addComa$.js");
 
 let tradingResults = () => {
 
-	let zeroedOut = [];
-	let buyEntry = 0;	
-	let sellEntry = 0;	
+	let zeroedOut = getEntries();
+	let aSell = false;
 	let buy = [];	
 	let sell = [];
 	let buySellLength = 0;
@@ -21,17 +20,26 @@ let tradingResults = () => {
 	let runningTallyTotal = 0;	
 	let tradingEffort = "";
 
-//	Gather only tickers (companies) that have sold all that was bought
-	getEntries().forEach((zero) => {
-		zero.forEach((entry) => {
+//	Remove any tickers (companies) that have not been sold
+	for (let i = 0 ; i < zeroedOut.length ; i++) {
+		aSell = false;
+		zeroedOut[i].forEach((entry) => {
 			if (entry[2] === "sell") {
-				sellEntry = sellEntry + parseFloat(entry[5]);
-			} else {
-				buyEntry = buyEntry + parseFloat(entry[5]);
-			}			
+				aSell = true;
+			}
 		});
-		if (sellEntry === buyEntry) {
-			zeroedOut.push(zero);		
+		if (!aSell) {
+			zeroedOut.splice(i, 1);
+		}
+	};
+//	Remove from ticker groups the "buys" after the last "sell"
+	zeroedOut.forEach((group) => {
+		for (let i = (group.length - 1) ; i > 0 ; i--) {
+			if (group[i][2] === "sell") {
+				i = 0;		
+			} else {
+				group.splice(i, 1);
+			}
 		}
 	});
 //	Adding up all of the "buy" costs

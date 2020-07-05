@@ -9,7 +9,6 @@ let getEntries = () => {
 	let allActivityArray = [[]];
 	let aMatch = false;
 
-
 	let data = fs.readFileSync(path, "utf8");
 
 	readArray = data.split(/\n/);
