@@ -36,6 +36,7 @@ let watchThese = () => {
 			for (let j = 0 ; j < deleteThese.length ; j++) {
 				if (transferArray[i][0] === deleteThese[j]) {
 					transferArray.splice(i, 1);
+					i--;
 				}
 			}
 		}

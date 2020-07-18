@@ -18,26 +18,26 @@ let activeAndShares = () => {
 		totalShares = 0;
 		totalCost = 0;
 		listAction = [];		
-		for (let j = 0 ; j < allDataArray[i].length ; j++) {
+		for (let j = 0 ; j < allDataArray[i].length ; j++) {		
 			workingShares = parseFloat(allDataArray[i][j][5]);
 			workingCost = parseFloat(allDataArray[i][j][4]);
 			if (allDataArray[i][j][2] !== "sell") {
-				totalShares =+ workingShares;
+				totalShares += workingShares;
 				listAction.push({
 					qty: workingShares,
 					cost: workingCost
 				});
-				totalCost =+ workingCost;			
+				totalCost += workingCost;
 			} else {
-				totalShares =- workingShares;
+				totalShares -= workingShares;
 				for (let k = 0 ; k < listAction.length ; k++) {
 					if (listAction[k].qty <= workingShares) {
-						workingShares =- listAction[k].qty;
-						totalCost =- listAction[k].cost;
+						workingShares -= listAction[k].qty;
+						totalCost -= listAction[k].cost;
 					} else {
 						percentSold = workingShares / listAction[k].qty;
 						workingShares = 0;
-						totalCost =- (listAction[k].cost * percentSold);
+						totalCost -= (listAction[k].cost * percentSold);
 					}
 				}
 			}
