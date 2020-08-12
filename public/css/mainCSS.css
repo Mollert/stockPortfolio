@@ -44,6 +44,7 @@ html, body {
 .siteTitle {
 	font-size: 2rem;
 	color: red;
+	text-align: center;
 	text-decoration: underline;
 	margin: 3rem 0 2rem 0;
 }
@@ -257,12 +258,12 @@ input[type=button]:hover {
 
 /*--- All Inclusive Page ---*/
 
-.listingBox {
-	flex-wrap: nowrap;
+.listRails {
+	margin: 0 1rem;
 }
 
 .indentList {
-	margin-left: 4rem;
+	margin-left: 2rem;
 }
 
 /*--- Watch List Page ---*/

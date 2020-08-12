@@ -1,13 +1,14 @@
 
 	<div class="mainTub">
 
-		<div class="siteTitle flexRow">A listing of all transactions</div>
+		<div class="siteTitle">A listing of all transactions</div>
 
-		<div class="flexRow">
+		<div class="flexRow listRails">
 			{{#each allTrans}}
-			<div class="listingBox" style="height: {{divHeight}}rem">
+			<div>
 				<div >A {{this.ticker}} <span style="color: {{this.typeColor}};">{{this.type}}</span> on {{this.date}},</div>
 				<div class="indentList">{{this.shares}} shares @ {{this.perShare}} per share; equaling {{this.total}} total cost.</div>
+				<div style="height: {{divHeight}}rem"></div>
 			</div>
 			{{/each}}
 		</div>

@@ -29,11 +29,11 @@ router.get("/", (req, res) => {
 
 		for (let j = 0 ; j < allActivityArray[i].length ; j++) {
 			if (allActivityArray[i][j][1] !== newTick) {
-				allTrans[allTrans.length - 1].divHeight = 6;
+				allTrans[allTrans.length - 1].divHeight = 1.8;
 			}
 
 			allTrans.push({
-				divHeight: 4.2,
+				divHeight: 0,
 				ticker: allActivityArray[i][j][1],
 				type: allActivityArray[i][j][2],
 				typeColor: whichColor(allActivityArray[i][j][2]),
